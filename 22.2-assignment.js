@@ -7,7 +7,16 @@ What is the input to each recursive call?
 What is the output of each recursive call?
 */
 
-//1. counting sheep
+/*1. counting sheep
+    input to program: 3
+    output of the program: 
+        3: Another sheep jumps over the fence
+        2: Another sheep jumps over the fence
+        1: Another sheep jumps over the fence
+        All sheep jumped over the fence
+    input to each recursive call: number - 1
+    output of each recursive call: console.log(`${number}: Another sheep jumps over the fence`)
+*/
 
 function countSheep(number) {
     //base case
@@ -22,5 +31,6 @@ function countSheep(number) {
 
 let num = 3;
 countSheep(num);
+
 
 
