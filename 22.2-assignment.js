@@ -7,3 +7,20 @@ What is the input to each recursive call?
 What is the output of each recursive call?
 */
 
+//1. counting sheep
+
+function countSheep(number) {
+    //base case
+    if(number===0){
+        console.log("All sheep jump over the fence.");
+        return;
+    }
+    //general case
+    console.log(`${number}: Another sheep jumps over the fence`);
+    return countSheep(number - 1);
+}
+
+let num = 3;
+countSheep(num);
+
+
