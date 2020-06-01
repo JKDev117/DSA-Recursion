@@ -1,3 +1,6 @@
+//node scratch.js
+
+
 let mySmallMaze = [
     [' ', ' ', ' '],
     [' ', '*', ' '],
