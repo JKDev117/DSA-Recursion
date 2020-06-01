@@ -40,12 +40,13 @@ input to program: 3
 
 
 
-/*2. Power Calculator ---------------------------------------------------------------- */
+/* 2. Power Calculator ---------------------------------------------------------------- */
 function powerCalculator(base, exponent) {
     //base case
     if(exponent===0){
         return 1;
-    } else if(exponent < 0){
+    } 
+    if(exponent < 0){
         return "Exponent should be >= 0"
     }
     //general case
@@ -69,4 +70,77 @@ console.log(powerCalculator(base, exponent));
 
 
 
+
+/* 3. Reverse String ------------------------------------------------------------------ */
+function reverseString(string) {
+    //base case
+    if(string.length === 1){
+        return string;
+    }
+    //general case
+    return string.slice(-1) + reverseString(string.slice(0,string.length-1))   
+}
+
+const word = "blue"
+console.log(reverseString(word));
+
+/*
+    input to program: "blue"
+    output of the program: "eulb"
+    input to each recursive call: "blu", "bl", "b" 
+    output of each recursive call:
+        "e" + reverseString("blu") => "eulb"
+        "u" + reverseString("bl") => "ulb"
+        "l" + reverseString("b") => "lb"
+-------------------------------------------------------------------------------------- */
+
+
+/* 4. nth Triangular Number ------------------------------------------------------------------ */
+function triangularNum(nth) {
+    //base case
+    if(nth === 1){
+        return nth;
+    }
+    //general case
+    return nth + triangularNum(nth - 1)
+}
+
+const sequence = [1,3,6,10,15,21,28,36,45];
+const nth = 4
+console.log(triangularNum(nth));
+
+/*
+    input to program: 4
+    output of the program: 10 
+    input to each recursive call: 3, 2
+    output of each recursive call:
+        4 + triangularNum(3) => 10
+        3 + triangularNum(2) => 6
+        2 + triangularNum(1) => 3
+-------------------------------------------------------------------------------------- */
+
+
+
+/* 5. String Splitter ------------------------------------------------------------------ */
+function stringSplitter(string, delimiters) {
+    //base case
+    if (!delimiters.length){ 
+        return string;
+    }    
+    //general case
+    return string.split(delimiters[0]).map(element => stringSplitter(element, delimiters.slice(1)));
+}
+  
+const date = '2/20/2020';
+const res = stringSplitter(date, ['/']);
+console.log(res);
+
+
+/*
+    input to program: ('02/20/2020', ['/'])
+    output of the program: ['02', '20', '2020']
+    input to each recursive call: ('02', []), ('20', []), ('2020', [])
+    output of each recursive call:
+        '02', '20', '2020'
+-------------------------------------------------------------------------------------- */
 
