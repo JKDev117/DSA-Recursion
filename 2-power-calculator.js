@@ -25,3 +25,5 @@ console.log(powerCalculator(base, exponent));
         3 * powerCalculator(3, 1) => 9
         3 * powerCalculator(3, 0) => 3
 -------------------------------------------------------------------------------------- */
+
+//node 2-power-calculator.js

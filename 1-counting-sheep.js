@@ -1,4 +1,4 @@
-/* 1. counting sheep ------------------------------------------------------------------ */
+/* 1. Counting Sheep ------------------------------------------------------------------ */
 function countSheep(number) {
     //base case
     if(number===0){
@@ -26,3 +26,5 @@ input to program: 3
         1: Another sheep jumps over the fence
         All sheep jumped over the fence
 -------------------------------------------------------------------------------------- */
+
+//node 1-counting-sheep.js

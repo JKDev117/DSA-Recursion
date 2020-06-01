@@ -21,3 +21,5 @@ console.log(triangularNum(nth));
         3 + triangularNum(2) => 6
         2 + triangularNum(1) => 3
 -------------------------------------------------------------------------------------- */
+
+//node 4-nth-triangular-number.js
