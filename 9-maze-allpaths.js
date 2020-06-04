@@ -12,6 +12,20 @@
 -------------------------------------------------------------------------------------- */
 
 
+/* 22.2 Assignment */
+/* 9. Find ALL the ways out of the maze   */
+
+let baseMaze = [['e']]
+
+let maze2 = [[' ', 'e']]
+
+let maze3 = [[' ', ' ', 'e']]
+
+let maze4 = [
+  [' ', ' '],
+  [' ', 'e']
+]
+
 let mySmallMaze = [
     [' ', ' ', ' '],
     [' ', '*', ' '],
@@ -28,6 +42,10 @@ let myBigMaze = [
 
 function findMazeExit(maze, row=0, column=0, direction){
         if(maze[row][column]=='e'){
+            if(direction){
+              console.log(direction)
+            }
+            console.log(maze)
             console.log(`Exit found at row ${row} column ${column}`);
         } else if(maze[row][column] == ' '){
             maze[row][column] = 'v';
@@ -37,39 +55,27 @@ function findMazeExit(maze, row=0, column=0, direction){
             }
 
             if(row < maze.length - 1){
-                //if(maze[row+1][column]==' ' || maze[row+1][column]=='e') {
-                    findMazeExit(maze, row+1, column, 'D')
-                    //console.log('D')
-
-                //}    
+                findMazeExit(maze, row+1, column, 'D')
             }
 
             if(column < maze[0].length - 1){
-                //if(maze[row][column+1] == ' ' || maze[row][column+1]=='e'){
-                    findMazeExit(maze, row, column + 1, 'R')
-                    //console.log('R')
-
-                //}
+                findMazeExit(maze, row, column + 1, 'R')
             }
-            
-            if(row > 0){
-                //if(maze[row-1][column] == ' ' || maze[row-1][column]=='e'){
-                    findMazeExit(maze, row-1, column, 'U')
-                    //console.log('U')
 
-                //}
+            if(row > 0){
+                findMazeExit(maze, row-1, column, 'U')
             }
             
             if(column > 0){
-                //if(maze[row][column-1] == ' ' || maze[row][column-1]=='e'){
-                    findMazeExit(maze, row, column-1, 'L')
-                    //console.log('L')
-
-                //}
+                findMazeExit(maze, row, column-1, 'L')
             }            
         }
 }
 
+//findMazeExit(baseMaze)
+//findMazeExit(maze2)
+//findMazeExit(maze3)
+//findMazeExit(maze4)
 //findMazeExit(mySmallMaze)
 findMazeExit(myBigMaze)
 
