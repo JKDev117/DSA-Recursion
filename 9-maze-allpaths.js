@@ -45,14 +45,16 @@ function findMazeExit(maze, row=0, column=0, direction){
             if(direction){
               console.log(direction)
             }
-            console.log(maze)
             console.log(`Exit found at row ${row} column ${column}`);
+            console.log(maze);
+            console.log("------------------------------------------");
         } else if(maze[row][column] == ' '){
             maze[row][column] = 'v';
             //console.log(maze)
             if(direction){
                 console.log(direction)
             }
+            console.log(row, column)
 
             if(row < maze.length - 1){
                 findMazeExit(maze, row+1, column, 'D')
@@ -62,7 +64,7 @@ function findMazeExit(maze, row=0, column=0, direction){
                 findMazeExit(maze, row, column + 1, 'R')
             }
 
-            if(row > 0){
+            if(row > 0 && column!=maze[0].length-1){
                 findMazeExit(maze, row-1, column, 'U')
             }
             
