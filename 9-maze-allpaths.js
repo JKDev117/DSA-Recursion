@@ -1,30 +1,4 @@
-/* #. name of exercise ------------------------------------------------------------------ */
-
-
-
-
-
-/*
-    input to program: 
-    output of the program: 
-    input to each recursive call: 
-    output of each recursive call:
--------------------------------------------------------------------------------------- */
-
-
-/* 22.2 Assignment */
-/* 9. Find ALL the ways out of the maze   */
-
-let baseMaze = [['e']]
-
-let maze2 = [[' ', 'e']]
-
-let maze3 = [[' ', ' ', 'e']]
-
-let maze4 = [
-  [' ', ' '],
-  [' ', 'e']
-]
+/* 9. Find ALL the ways out of the maze ------------------------------------------------------------------ */
 
 let mySmallMaze = [
     [' ', ' ', ' '],
@@ -38,48 +12,72 @@ let myBigMaze = [
     [' ', ' ', ' ', ' ', ' ', ' ', ' '],
     [' ', '*', '*', '*', '*', '*', ' '],
     [' ', ' ', ' ', ' ', ' ', ' ', 'e']
-];
+];  
 
-function findMazeExit(maze, row=0, column=0, direction){
-        if(maze[row][column]=='e'){
-            if(direction){
-              console.log(direction)
-            }
-            console.log(`Exit found at row ${row} column ${column}`);
-            console.log(maze);
-            console.log("------------------------------------------");
-        } else if(maze[row][column] == ' '){
-            maze[row][column] = 'v';
-            //console.log(maze)
-            if(direction){
-                console.log(direction)
-            }
-            console.log(row, column)
 
-            if(row < maze.length - 1){
-                findMazeExit(maze, row+1, column, 'D')
-            }
+function findMazeExit(maze, row=0, column=0, path=[]){
+        
+    if(maze[row][column]=='e'){
+        console.log(`Exit found at row ${row} column ${column}`);
+        console.log(maze)
+        console.log(path)
+        return path
+    }
 
-            if(column < maze[0].length - 1){
-                findMazeExit(maze, row, column + 1, 'R')
-            }
-
-            if(row > 0 && column!=maze[0].length-1){
-                findMazeExit(maze, row-1, column, 'U')
-            }
-            
-            if(column > 0){
-                findMazeExit(maze, row, column-1, 'L')
-            }            
+    if(maze[row][column]==' '){
+        maze[row][column]='v'
+        
+        //R
+        if(column < maze[0].length-1){
+            findMazeExit(maze, row, column+1, [...path, 'R'])
         }
+        
+        //D
+        if(row < maze.length-1){
+            findMazeExit(maze, row+1, column, [...path, 'D'])
+        }
+
+        //L
+        if(column > 0){
+            findMazeExit(maze, row, column-1, [...path, 'L'])
+        }   
+
+        //U
+        if(row > 0){
+            findMazeExit(maze, row-1, column, [...path, 'U'])
+        }
+
+        maze[row][column]=' '
+    }
+
 }
 
-//findMazeExit(baseMaze)
-//findMazeExit(maze2)
-//findMazeExit(maze3)
-//findMazeExit(maze4)
-//findMazeExit(mySmallMaze)
+findMazeExit([[' ','e']])
+
+findMazeExit(mySmallMaze)
+
 findMazeExit(myBigMaze)
 
 
+/*
+    input to program: 
+        [[' ','e']]
+    
+    output of the program: 
+        Exit found at row 1 column 0
+        [ 'v', 'e' ]
+        [ 'D' ]
+
+    input to each recursive call: 
+        ( maze, 0, 1, ['R'] )
+        
+    output of each recursive call:
+        Exit found at row 1 column 0
+        [ 'v', 'e' ]
+        [ 'D' ]
+
+-------------------------------------------------------------------------------------- */
+
 //node 9-maze-allpaths.js
+
+
