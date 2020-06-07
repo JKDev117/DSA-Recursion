@@ -64,17 +64,17 @@ findMazeExit(myBigMaze)
         [[' ','e']]
     
     output of the program: 
-        Exit found at row 1 column 0
-        [ 'v', 'e' ]
-        [ 'D' ]
+        Exit found at row 0 column 1
+        [ [ 'v', 'e' ] ]
+        [ 'R' ]
 
     input to each recursive call: 
-        ( maze, 0, 1, ['R'] )
+        (maze, 0, 1, ['R'])
         
     output of each recursive call:
-        Exit found at row 1 column 0
-        [ 'v', 'e' ]
-        [ 'D' ]
+        Exit found at row 0 column 1
+        [ [ 'v', 'e' ] ]
+        [ 'R' ]
 
 -------------------------------------------------------------------------------------- */
 
